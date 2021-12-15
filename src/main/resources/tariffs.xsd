@@ -2,4 +2,55 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://www.example.com/tariffs"
         xmlns:tns="http://www.example.com/tariffs"
-        elementFormDefault="qualified"
+        elementFormDefault="qualified">
+        <element name="tariffs">
+                <complexType>
+                    <sequence>
+                        <element name="phoneTariff"
+                                 type="tns:PhoneTariff"
+                                 minOccurs="1"
+                                 maxOccurs="unbounded"/>
+                        <element name="homeTariff"
+                                 type="tns:HomeTariff"
+                                 minOccurs="1"
+                                 maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+        </element>
+        <complexType name="Tariff">
+            <sequence>
+                <element name="name" type="string"/>
+                <element name="payroll" type="double"/>
+            </sequence>
+            <attribute name="id" type="positiveInteger" use="required"/>
+            <attribute name="operator" use="optional" default="A1">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="MTS"/>
+                        <enumeration value="A1"/>
+                        <enumeration value="Life"/>
+                    </restriction>
+                </simpleType>
+            </attribute>
+        </complexType>
+        <complexType name="PhoneTariff">
+            <complexContent>
+                <extension base="tns:Tariff">
+                    <sequence>
+                        <element name="callMinutes" type="positiveInteger"/>
+                        <element name="smsPrice" type="double"/>
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+        <complexType name="HomeTariff">
+            <complexContent>
+                <extension base="tns:Tariff">
+                    <sequence>
+                        <element name="routerType" type="string"/>
+                        <element name="internetSpeed" type="double"/>
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+</schema>
