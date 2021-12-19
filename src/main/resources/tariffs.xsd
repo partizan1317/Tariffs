@@ -8,11 +8,11 @@
                     <sequence>
                         <element name="phoneTariff"
                                  type="tns:PhoneTariff"
-                                 minOccurs="1"
+                                 minOccurs="2"
                                  maxOccurs="unbounded"/>
                         <element name="homeTariff"
                                  type="tns:HomeTariff"
-                                 minOccurs="1"
+                                 minOccurs="2"
                                  maxOccurs="unbounded"/>
                     </sequence>
                 </complexType>
