@@ -18,8 +18,8 @@ public class TariffSaxParser implements Parser{
             TariffHandler handler = new TariffHandler();
             saxParser.parse(filePath, handler);
             return handler.getTariffs();
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            throw new ParserException(e);
+        } catch (ParserConfigurationException | SAXException | IOException exception) {
+            throw new ParserException(exception);
         }
     }
 }
