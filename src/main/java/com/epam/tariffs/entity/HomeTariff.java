@@ -12,12 +12,31 @@ public class HomeTariff extends Tariff {
         this.internetSpeed = internetSpeed;
     }
 
+    public HomeTariff(HomeTariffBuilder builder){
+        super(builder);
+        this.routerType = builder.routerType;
+        this.internetSpeed = builder.internetSpeed;
+    }
+
     public String getRouterType() {
         return routerType;
     }
 
     public double getInternetSpeed() {
         return internetSpeed;
+    }
+
+    public static class HomeTariffBuilder extends TariffBuilder {
+        private String routerType;
+        private double internetSpeed;
+
+        public void setRouterType(String routerType) {
+            this.routerType = routerType;
+        }
+
+        public void setInternetSpeed(double internetSpeed) {
+            this.internetSpeed = internetSpeed;
+        }
     }
     
     @Override

@@ -6,11 +6,11 @@
         <element name="tariffs">
                 <complexType>
                     <sequence>
-                        <element name="phoneTariff"
+                        <element name="phone-tariff"
                                  type="tns:PhoneTariff"
                                  minOccurs="2"
                                  maxOccurs="unbounded"/>
-                        <element name="homeTariff"
+                        <element name="home-tariff"
                                  type="tns:HomeTariff"
                                  minOccurs="2"
                                  maxOccurs="unbounded"/>
@@ -22,7 +22,7 @@
                 <element name="name" type="string"/>
                 <element name="payroll" type="double"/>
             </sequence>
-            <attribute name="id" type="ID" use="required"/>
+            <attribute name="id" type="positiveInteger" use="required"/>
             <attribute name="operator" use="optional" default="A1">
                 <simpleType>
                     <restriction base="string">
@@ -37,8 +37,8 @@
             <complexContent>
                 <extension base="tns:Tariff">
                     <sequence>
-                        <element name="callMinutes" type="positiveInteger"/>
-                        <element name="smsPrice" type="double"/>
+                        <element name="call-minutes" type="positiveInteger"/>
+                        <element name="sms-price" type="double"/>
                     </sequence>
                 </extension>
             </complexContent>
@@ -47,8 +47,8 @@
             <complexContent>
                 <extension base="tns:Tariff">
                     <sequence>
-                        <element name="routerType" type="string"/>
-                        <element name="internetSpeed" type="double"/>
+                        <element name="router-type" type="string"/>
+                        <element name="internet-speed" type="double"/>
                     </sequence>
                 </extension>
             </complexContent>

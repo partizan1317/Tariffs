@@ -11,12 +11,31 @@ public class PhoneTariff extends Tariff {
         this.smsPrice = smsPrice;
     }
 
+    public PhoneTariff (PhoneTariffBuilder builder) {
+        super(builder);
+        this.callMinutes = builder.callMinutes;
+        this.smsPrice = builder.smsPrice;
+    }
+
     public int getCallMinutes() {
         return callMinutes;
     }
 
     public double getSmsPrice() {
         return smsPrice;
+    }
+
+    public static class PhoneTariffBuilder extends TariffBuilder {
+        private int callMinutes;
+        private double smsPrice;
+
+        public void setCallMinutes(int callMinutes) {
+            this.callMinutes = callMinutes;
+        }
+
+        public void setSmsPrice(double smsPrice) {
+            this.smsPrice = smsPrice;
+        }
     }
 
     @Override

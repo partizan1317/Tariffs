@@ -15,6 +15,13 @@ public class Tariff {
         this.payroll = payroll;
     }
 
+    public Tariff(TariffBuilder builder) {
+        this.id = builder.id;
+        this.name = builder.name;
+        this.operatorType = builder.operatorType;
+        this.payroll = builder.payroll;
+    }
+
     public int getId() {
         return id;
     }
@@ -29,6 +36,30 @@ public class Tariff {
 
     public double getPayroll() {
         return payroll;
+    }
+
+    public static class TariffBuilder {
+        private int id;
+        private String name;
+        private Operator operatorType;
+        private double payroll;
+
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public void setPayroll(double payroll) {
+            this.payroll = payroll;
+        }
+
+        public void setOperatorType(Operator operatorType) {
+            this.operatorType = operatorType;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 
     @Override
