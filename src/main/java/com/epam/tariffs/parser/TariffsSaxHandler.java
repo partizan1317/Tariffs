@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TariffHandler extends DefaultHandler {
+public class TariffsSaxHandler extends DefaultHandler {
 
     private static final String TARIFFS = "tariffs";
     private static final String HOME_TARIFF = "home-tariff";
@@ -125,6 +125,11 @@ public class TariffHandler extends DefaultHandler {
                 destination.setName(name);
             }
         }
+    }
+
+    @Override
+    public void endDocument() throws SAXException {
+        super.endDocument();
     }
 
     public List<Tariff> getTariffs() {

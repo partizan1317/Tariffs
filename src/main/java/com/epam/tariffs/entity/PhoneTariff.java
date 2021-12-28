@@ -1,12 +1,22 @@
 package com.epam.tariffs.entity;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "phone-tariff")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PhoneTariff extends Tariff {
 
-    private final int callMinutes;
-    private final double smsPrice;
+    @XmlElement(name = "call-minutes", namespace = "http://www.example.com/tariffs")
+    private int callMinutes;
+    @XmlElement(name = "sms-price", namespace = "http://www.example.com/tariffs")
+    private double smsPrice;
 
-    public PhoneTariff(int id, String name, Operator operatorType, double payroll, int callMinutes, double smsPrice) {
-        super(id, name, operatorType, payroll);
+    public PhoneTariff() {
+
+    }
+
+    public PhoneTariff(int id, Operator operatorType, String name, double payroll, int callMinutes, double smsPrice) {
+        super(id, operatorType, name, payroll);
         this.callMinutes = callMinutes;
         this.smsPrice = smsPrice;
     }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tariffs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/tariffs"
+         xsi:schemaLocation="http://www.example.com/tariffs tariffs.xsd">
+        <phone-tariff id="1" operator-type="MTS">
+            <name>Безлимитище</name>
+            <payroll>18.90</payroll>
+            <call-minutes>150</call-minutes>
+            <sms-price>0.2</sms-price>
+        </phone-tariff>
+        <phone-tariff id="2" operator-type="LIFE">
+            <name>Пенсионный</name>
+            <payroll>9.40</payroll>
+            <call-minutes>100</call-minutes>
+            <sms-price>0.1</sms-price>
+        </phone-tariff>
+        <home-tariff id="3">
+            <name>HomeSmart</name>
+            <payroll>25</payroll>
+            <router-type>ADSL</router-type>
+            <internet-speed>50</internet-speed>
+        </home-tariff>
+        <home-tariff id="4">
+            <name>HomeLuxury</name>
+            <payroll>50</payroll>
+            <router-type>Ethernet (FTTB)</router-type>
+            <internet-speed>150</internet-speed>
+        </home-tariff>
+</tariffs>

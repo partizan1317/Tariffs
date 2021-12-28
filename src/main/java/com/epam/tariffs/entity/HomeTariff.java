@@ -1,13 +1,23 @@
 package com.epam.tariffs.entity;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
+@XmlRootElement(name = "home-tariff")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class HomeTariff extends Tariff {
-    private final String routerType;
-    private final double internetSpeed;
 
-    public HomeTariff(int id, String name, Operator operatorType, double payroll, String routerType, double internetSpeed) {
-        super(id, name, operatorType, payroll);
+    @XmlElement(name = "router-type", namespace = "http://www.example.com/tariffs")
+    private String routerType;
+    @XmlElement(name = "internet-speed", namespace = "http://www.example.com/tariffs")
+    private double internetSpeed;
+
+    public HomeTariff () {
+
+    }
+
+    public HomeTariff(int id, Operator operatorType, String name, double payroll, String routerType, double internetSpeed) {
+        super(id, operatorType, name, payroll);
         this.routerType = routerType;
         this.internetSpeed = internetSpeed;
     }

@@ -1,24 +1,36 @@
 package com.epam.tariffs.entity;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
+@XmlSeeAlso({PhoneTariff.class, HomeTariff.class})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Tariff {
-    private final int id;
-    private final String name;
-    private final Operator operatorType;
-    private final double payroll;
 
-    public Tariff(int id, String name, Operator operatorType, double payroll) {
+    @XmlAttribute(name = "id")
+    private int id;
+    @XmlAttribute(name = "name")
+    private String name;
+    @XmlElement(name = "operator-type", namespace = "http://www.example.com/tariffs")
+    private Operator operatorType;
+    @XmlElement(name = "payroll", namespace = "http://www.example.com/tariffs")
+    private double payroll;
+
+    public Tariff () {
+
+    }
+
+    public Tariff(int id, Operator operatorType, String name, double payroll) {
         this.id = id;
-        this.name = name;
         this.operatorType = operatorType;
+        this.name = name;
         this.payroll = payroll;
     }
 
     public Tariff(TariffBuilder builder) {
         this.id = builder.id;
-        this.name = builder.name;
         this.operatorType = builder.operatorType;
+        this.name = builder.name;
         this.payroll = builder.payroll;
     }
 

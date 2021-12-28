@@ -23,12 +23,12 @@
                 <element name="payroll" type="double"/>
             </sequence>
             <attribute name="id" type="positiveInteger" use="required"/>
-            <attribute name="operator" use="optional" default="A1">
+            <attribute name="operator-type" use="optional" default="A1">
                 <simpleType>
                     <restriction base="string">
                         <enumeration value="MTS"/>
                         <enumeration value="A1"/>
-                        <enumeration value="Life"/>
+                        <enumeration value="LIFE"/>
                     </restriction>
                 </simpleType>
             </attribute>
